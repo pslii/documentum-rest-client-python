@@ -77,6 +77,8 @@ class Resource(object):
         Get count of the entries if the resource is a collection
         :return: count of entries
         """
+        if not self.is_key_existing('entries'):
+            return 0
         return len(self.get('entries'))
 
     def get_entry(self, index):
